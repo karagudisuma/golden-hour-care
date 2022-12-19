@@ -1,9 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import image1 from "../assests/image1.jpg";
 import image2 from "../assests/image2.jpg";
-import image3 from "../assests/image3.jpg";
 
 function Home() {
   const navigate = useNavigate();
@@ -11,33 +9,6 @@ function Home() {
   const [emergency, setEmergency] = useState("");
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState("");
-  let slideIndex = 1;
-
-  function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    if (slides && slides.length > 1) {
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style = { display: "none" };
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) {
-        slideIndex = 1;
-      }
-      slides[slideIndex - 1].style = { display: "block" };
-      setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
-  }
-
-  // Next/previous controls
-  function plusSlides(n) {
-    showSlides((slideIndex += n));
-  }
-
-  // Thumbnail image controls
-  function currentSlide(n) {
-    showSlides((slideIndex = n));
-  }
 
   const onSubmit = async () => {
     try {
@@ -52,7 +23,6 @@ function Home() {
     }
   };
 
-  showSlides();
   return (
     <div className="App">
       <header className="App-header">
@@ -67,7 +37,7 @@ function Home() {
               id="emergency"
               onChange={(e) => setEmergency(e.target.value)}
             >
-              <option value="">Choose the emergency..</option>
+              <option value="">Choose your emergency..</option>
               <option value="accident">Accident</option>
               <option value="heart-attack">Heart Attack</option>
               <option value="labour-pain">Labour Pain</option>
@@ -80,7 +50,7 @@ function Home() {
               id="area"
               onChange={(e) => setArea(e.target.value)}
             >
-              <option value="">Choose the area..</option>
+              <option value="">Choose your area..</option>
               <option value="bengaluru">Bengaluru</option>
               <option value="chennai">Chennai</option>
               <option value="mumbai">Mumbai</option>
@@ -88,43 +58,10 @@ function Home() {
             </select>
           </div>
           <div className="ddBtn">
-            <button type="submit" onClick={onSubmit}>
+            <button type="submit" onClick={onSubmit} className="hospitalbtn">
               Get help
             </button>
           </div>
-        </div>
-        <div className="slideshow-container">
-          <div className="mySlides fade">
-            <div className="numbertext">1 / 3</div>
-            <img src={image1} style={{ width: "100%" }} />
-            <div className="text">Call Hospital</div>
-          </div>
-
-          <div className="mySlides fade">
-            <div className="numbertext">2 / 3</div>
-            <img src={image2} style={{ width: "100%" }} />
-            <div className="text">Alert doctor</div>
-          </div>
-
-          <div className="mySlides fade">
-            <div className="numbertext">3 / 3</div>
-            <img src={image3} style={{ width: "100%" }} />
-            <div className="text">Get treated</div>
-          </div>
-
-          <a className="prev" onClick={plusSlides(-1)}>
-            ❮
-          </a>
-          <a className="next" onClick={plusSlides(1)}>
-            ❯
-          </a>
-        </div>
-        <br />
-
-        <div style={{ textAlign: "center" }}>
-          <span className="dot" onClick={currentSlide(1)}></span>
-          <span className="dot" onClick={currentSlide(2)}></span>
-          <span className="dot" onClick={currentSlide(3)}></span>
         </div>
         {!isLoading && items.length > 0 && (
           <div>
@@ -150,8 +87,13 @@ function Home() {
             </table>
           </div>
         )}
-        <div>
-          <Link to={"/hospital-admin"}>Add info</Link>
+      </div>
+      <div className="img-container">
+        <img src={image2} style={{ width: "100%" }} />
+        <div className="linkText">
+          <Link to={"/hospital-admin"}>
+            <p>Add your hospital to Golden Care</p>
+          </Link>
         </div>
       </div>
     </div>

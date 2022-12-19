@@ -16,11 +16,11 @@ function HospitalAdmin() {
   const saveData = async () => {
     const { name, address, contact, city, emergency } = data;
     if (
-      name == "" ||
-      address == "" ||
-      contact == "" ||
-      city == "" ||
-      emergency == ""
+      name === "" ||
+      address === "" ||
+      contact === "" ||
+      city === "" ||
+      emergency === ""
     ) {
       alert("Please enter all fields");
       return;
@@ -32,7 +32,7 @@ function HospitalAdmin() {
           "Content-type": "application/json; charset=UTF-8",
         },
       }).then((data) => {
-        if (data.statusText == "OK") {
+        if (data.statusText === "OK") {
           alert("Hospital data successfully added!!");
           navigate("/");
         } else {
@@ -91,15 +91,19 @@ function HospitalAdmin() {
           <label htmlFor="city" className="hospitalLabel">
             City
           </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={data.city}
-            placeholder="City"
-            className="hospitalInput"
-            onChange={(e) => setData({ ...data, city: e.target.value })}
-          />
+          <div className="ddSelect">
+            <select
+              name="area"
+              id="area"
+              onChange={(e) => setData({ ...data, city: e.target.value })}
+            >
+              <option value="">Choose your area..</option>
+              <option value="bengaluru">Bengaluru</option>
+              <option value="chennai">Chennai</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="delhi">Delhi</option>
+            </select>
+          </div>
         </div>
         <div className="hospitalDiv">
           <label htmlFor="emergency" className="hospitalLabel">
