@@ -1,0 +1,70 @@
+.errorText{
+  color: "red"
+}
+
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: #b1d4e5;
+  border-collapse: collapse;
+  width: 98%;
+  margin: 1rem;
+}
+
+th {
+  background-color: #b1d4e5;
+}
+
+td, th {
+  border: 1px solid #b1d4e5;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #b1d4e5;
+}
+
+.hospitalInput{
+  margin: 1rem;
+  width: 60%;
+  height: 28px;
+}
+
+.hospitalTextarea{
+  margin: 1rem;
+  width: 60%;
+}
+
+.hospitalLabel {
+  margin: 1rem 2rem;
+  width: 20%;
+}
+
+.hospitalDiv{
+  display: flex;
+}
+
+.container{
+  width: 80%;
+}
+
+.hospitalbtn{
+  background-color: #145DA0;
+  width: 100px;
+  height: 32px;
+}
+
+.hospitalFooter{
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.homeContainer{
+  display: flex;
+  flex-direction: column;
+}
