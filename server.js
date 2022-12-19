@@ -155,7 +155,9 @@ app.get("/lists/:area/:emergency", function (req, res) {
   const area = req.params.area;
   const emergency = req.params.emergency;
   const result = hospitalData.filter(
-    (object) => object.city === area && object.emergency === emergency
+    (object) =>
+      object.city.toLowerCase() === area.toLowerCase() &&
+      object.emergency.toLowerCase() === emergency.toLowerCase()
   );
   res.send({
     data: result,
