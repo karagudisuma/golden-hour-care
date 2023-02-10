@@ -27,7 +27,7 @@ function Home() {
     <div className="App">
       <header className="App-header">
         <h1 className="goldenCareText">Golden Care</h1>
-        <h5 className="subText">Golden hour care to save life</h5>
+        <h5 className="subText">Golden care to save life</h5>
       </header>
       <div className="homeContainer">
         <div className="mainMenu">
